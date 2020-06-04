@@ -1,7 +1,7 @@
 pipeline {
     agent {
         kubernetes {
-            label 'pic18f47q84-2-axis-cnc'
+            label 'pic18f57q84-2-axis-cnc'
 			defaultContainer 'xc8-mplabx'
             yamlFile 'cloudprovider.yml'
         }
@@ -14,8 +14,8 @@ pipeline {
     }
 	
 	environment {		
-		GITHUB_URL ='https://github.com/microchip-pic-avr-examples/pic18f47q84-2-axis-cnc.git'
-		BITBUCKET_URL = 'https://bitbucket.microchip.com/scm/ebe/pic18f47q84-2-axis-cnc.git'
+		GITHUB_URL ='https://github.com/microchip-pic-avr-examples/pic18f57q84-2-axis-cnc.git'
+		BITBUCKET_URL = 'https://bitbucket.microchip.com/scm/ebe/pic18f57q84-2-axis-cnc.git'
 		DEPLOY_TOOL_URL = 'https://bitbucket.microchip.com/scm/citd/tool-github-deploy.git'
 		DEPLOY_SCRIPT_DIR = 'tool-github-deploy'
 		DEPLOY_SCRIPT_FILE = 'deploy-source-as-is.sh'
