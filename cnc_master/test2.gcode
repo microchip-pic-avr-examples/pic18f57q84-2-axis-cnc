@@ -1,0 +1,13 @@
+O1000
+(Linear / Feed - Absolute)
+G0 G21 G17 G90
+G28
+G1 F100
+X480
+Y230
+X0
+Y0
+X480 Y230
+Y0
+X0 Y230
+Y0
