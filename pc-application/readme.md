@@ -20,38 +20,28 @@ be Python 3.7.x
 - Pyserial 10.0.1 [(pypi.org/project/pyserial)](https://pypi.org/project/pyserial/) - `pip install pyserial`
 - Developed and tested on Windows 10
 
-## Setup
+## Operation
 
-Run main.py
+Run main.py with Python (through a command prompt this would be `python main.py`)
 
 Select the comm port of the Nano in the dropdown menu
 
-<img src="../images/disconnected.PNG" alt="MCHP" width="300"/>
+<img src="../images/disconnected.PNG" alt="" width="400"/>
 
 Hit connect
 
-<img src="../images/connecting.PNG" alt="MCHP" width="300"/>
+<img src="../images/connecting.PNG" alt="" width="400"/>
 
 The state will change to connected and you will be able to import a
 G-code file. Click import
 
-<img src="../images/connected.PNG" alt="MCHP" width="300"/>
+<img src="../images/connected.PNG" alt="" width="400"/>
 
 Select the G-Code file
 
-<img src="../images/select.PNG" alt="MCHP" width="300"/>
+<img src="../images/select.PNG" alt="" width="400"/>
 
 The G-Code will be loaded and parsed. The run option will become avaible,
-click it to run the routine.
+click it to run the routine
 
-<img src="../images/run.PNG" alt="MCHP" width="300"/>
-
-<!-- Explain how to connect hardware and set up software. Depending on complexity, step-by-step instructions and/or tables and/or images can be used -->
-
-## Operation
-
-<!-- Explain how to operate the example. Depending on complexity, step-by-step instructions and/or tables and/or images can be used -->
-
-## Summary
-
-<!-- Summarize what the example has shown -->
+<img src="../images/run.PNG" alt="" width="400"/>
