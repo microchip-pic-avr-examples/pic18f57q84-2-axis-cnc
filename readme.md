@@ -65,12 +65,12 @@ a selected end effector.
 
 Most configuration is done through the config.h file. The configurations are:
 
-- TICKS_PER_METER: the number of steps of the stepper motor required to move the
+- `TICKS_PER_METER`: the number of steps of the stepper motor required to move the
 end effector one meter
-- X_MAX/YMAX: the maximum range, in steps, of the X and Y axes
-- X_BACKWARDS/Y_BACKWARDS: whether to reverse the direction of the stepper
+- `X_MAX`/`YMAX`: the maximum range, in steps, of the X and Y axes
+- `X_BACKWARDS`/`Y_BACKWARDS`: whether to reverse the direction of the stepper
 motor on this axis
-- BUFFER_NUMBER_PACKETS: the size of the command buffer. This can be left at the
+- `BUFFER_NUMBER_PACKETS`: the size of the command buffer. This can be left at the
 default 5
 
 Pinout is defined with two constants, `NAME_PIN_PORT` and `NAME_PIN_POS`. To
