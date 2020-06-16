@@ -88,7 +88,7 @@ By default the limit switch pin for the y axis is RA1, and the x axis is RC7.
 The actuator is on pin RF2.
 
 If an alternate method of controlling the actuator is desired, the relevant
-functions are `Platform_RaiseActuator()` and `Platform_LowerActuator()` in
+functions to modify are `Platform_RaiseActuator()` and `Platform_LowerActuator()` in
 platform.c which by default simply set ACTUATOR_PIN high/low.
 
 <!-- Explain how to connect hardware and set up software. Depending on complexity, step-by-step instructions and/or tables and/or images can be used -->
@@ -109,3 +109,11 @@ Movement in the Z axis and the X/Y plane simultaneously is not supported.
 ## Summary
 
 <!-- Summarize what the example has shown -->
+
+The example G-Code included with the PC application creates the star shown below.
+
+![Output](images/star.png)
+
+This project demonstrates the ability of CIPs to complete tasks that would
+traditionally require math and timing intensive tasks done by a more expensive
+microcontroller.
