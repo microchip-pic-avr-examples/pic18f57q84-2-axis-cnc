@@ -42,17 +42,69 @@ with minimal
      - Curiosity Nano Base for Click boards™ [(AC164162)](https://www.microchip.com/Developmenttools/ProductDetails/AC164162)
      - POT Click board™ [(MIKROE-3402)](https://www.mikroe.com/pot-click) -->
 
+<img src="images/platform.png" alt="Platform" width="600"/>
+
+
 - PIC18F57Q43 Curiosity Nano [(DM182029)](https://www.microchip.com/Developmenttools/ProductDetails/DM164150)
 - Curiosity Nano Base for Click boards™ [(AC164162)](https://www.microchip.com/Developmenttools/ProductDetails/AC164162)
 - 2x Stepper Click board™ [(MIKROE-3402)](https://www.mikroe.com/stepper-click)
+- 2 Axis CNC gantry - The code is designed to be flexible, such that it can
+be modified to work with almost any XY stepper gantry selected, provided
+the power requirements are not too great.
+- 2x Limit switches - Switches should be located such that they are pressed when
+the platform is at the (0, 0) position, and should be high when pressed.
+- 2x stepper motors - The motors used will depend on the gantry, ensure
+that they both move the end effector the same distance per tick, and must be
+2-pole (4 wire) to work with the Stepper Click board™
+- End Effector - Choice of end effector is likewise left flexible. As configured,
+the end effector selected should be raised when the pin controlling it is low,
+and lowered when the pin is high. This can be modified as needed to work with
+a selected end effector.
 
 ## Setup
+
+Most configuration is done through the config.h file. The configurations are:
+
+- TICKS_PER_METER: the number of steps of the stepper motor required to move the
+end effector one meter
+- X_MAX/YMAX: the maximum range, in steps, of the X and Y axes
+- X_BACKWARDS/Y_BACKWARDS: whether to reverse the direction of the stepper
+motor on this axis
+- BUFFER_NUMBER_PACKETS: the size of the command buffer. This can be left at the
+default 5
+
+Pinout is defined with two constants, `NAME_PIN_PORT` and `NAME_PIN_POS`. To
+have pin Y_ENABLE on RA6, the code would be
+
+```
+#define Y_ENABLE_PIN_PORT RA
+#define Y_ENABLE_PIN_POS 6
+```
+
+As configured, the Y axis Stepper Click board™ should go in slot 1, and the x
+axis should be in slot 3.
+
+By default the limit switch pin for the y axis is RA1, and the x axis is RC7.
+The actuator is on pin RF2.
+
+If an alternate method of controlling the actuator is desired, the relevant
+functions are `Platform_RaiseActuator()` and `Platform_LowerActuator()` in
+platform.c which by default simply set ACTUATOR_PIN high/low.
 
 <!-- Explain how to connect hardware and set up software. Depending on complexity, step-by-step instructions and/or tables and/or images can be used -->
 
 ## Operation
 
-<!-- Explain how to operate the example. Depending on complexity, step-by-step instructions and/or tables and/or images can be used -->
+The CNC machine should be connected to the PC via USB. Operation of the PC
+control GUI is explained in detail in the readme file in the pc-application
+directory. An example G-Code that will draw a star is included in that
+directory.
+
+For the purposes of creating G-Code, the machine operates in the x and y axis,
+with the location of the limit switches as (0, 0) and proceeding in the
+positive direction. A value of Z0 will cause the end effector to lower, any
+other value will cause it to raise.  Operation is limited to linear movement.
+Movement in the Z axis and the X/Y plane simultaneously is not supported.
 
 ## Summary
 
