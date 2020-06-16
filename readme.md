@@ -42,7 +42,7 @@ with minimal
      - Curiosity Nano Base for Click boards™ [(AC164162)](https://www.microchip.com/Developmenttools/ProductDetails/AC164162)
      - POT Click board™ [(MIKROE-3402)](https://www.mikroe.com/pot-click) -->
 
-<img src="images/platform.png" alt="Platform" width="600"/>
+![Platform](images/platform.png)
 
 
 - PIC18F57Q43 Curiosity Nano [(DM182029)](https://www.microchip.com/Developmenttools/ProductDetails/DM164150)
