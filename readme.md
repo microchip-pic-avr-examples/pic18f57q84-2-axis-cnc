@@ -11,6 +11,35 @@ microcontroller core.
 with minimal
 
 
+## Theory of Operation
+
+This is a general overview of the application. A more complete explanation can
+ be found in the associated Appllication Note.
+
+ Numerically Controlled Oscillators are a peripheral which work by creating
+ an output frequency which is a precise fraction of the input frequency.
+ This project makes use of three NCOs, a master NCO which determines overall speed,
+  and a slave NCO for each axis which determines the proportion of speed,
+  as shown below.
+
+   ![CNC Overview](images/cnc.png)
+
+For instance, if the goal is to move 200 mm in the X axis, and 100 mm in the Y
+axis, the X NCO can be set to produce twice the frequency of output as the
+Y NCO. This means that that X will move twice as fast, and therefore cover twice
+the distance.
+
+Additionally, because both frequencies are a function of the master
+frequency, if the master frequency is doubled, the speed in both axes will be
+doubled, while maintaining the same proportion (e.g X will still be going twice
+as fast as Y, and will therefore still cover twice the distance).
+
+By counting the number of output pulses of the master NCO, the distance
+travelled by each slave NCO is known. In short, this is because if the master
+NCO has produced the requisite number of output ticks, the two slave NCOs have
+moved the steppers in both axes the correct distance.
+
+
 ## Related Documentation
 
 <!-- Any information about an application note or tech brief can be linked here. Use unbreakable links!
