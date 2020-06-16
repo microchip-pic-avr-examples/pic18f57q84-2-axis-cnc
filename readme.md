@@ -18,9 +18,11 @@ This is a general overview of the application. A more complete explanation can
 
  Numerically Controlled Oscillators are a peripheral which work by creating
  an output frequency which is a precise fraction of the input frequency.
+ This frequency is a function of two values, the input frequency, and the
+ value of the increment register of the NCO.
  This project makes use of three NCOs, a master NCO which determines overall speed,
-  and a slave NCO for each axis which determines the proportion of speed,
-  as shown below.
+  and a slave NCO for each axis which determines the proportion of speed in each
+  axis, set up as shown below.
 
    ![CNC Overview](images/cnc.png)
 
@@ -31,11 +33,17 @@ the distance.
 
 Additionally, because both frequencies are a function of the master
 frequency, if the master frequency is doubled, the speed in both axes will be
-doubled, while maintaining the same proportion (e.g X will still be going twice
+doubled, while maintaining the same proportion (e.g. X will still be going twice
 as fast as Y, and will therefore still cover twice the distance).
 
-By counting the number of output pulses of the master NCO, the distance
-travelled by each slave NCO is known. In short, this is because if the master
+Direct Memory Address (DMA) is a module which can copy data from one memory
+location to another when triggered. Acceleration of the machine can be achieved
+by using the DMA to gradually increase or decrease the value in the increment
+register of the NCO, resulting in the frequency of the master NCO, and therefore
+the speed of movement in the two axes, increasing or decreasing proportionally.
+
+The distance travelled in each direction can be known by counting the number of
+pulses from the master NCO. In short, this is because if the master
 NCO has produced the requisite number of output ticks, the two slave NCOs have
 moved the steppers in both axes the correct distance.
 
