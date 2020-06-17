@@ -1,14 +1,11 @@
-<!-- Please do not change this html logo with link -->
 <a href="https://www.microchip.com" rel="nofollow"><img src="images/microchip.png" alt="MCHP" width="300"/></a>
 
-# PIC18F7Q84 Two Axis CNC Machine
+# PIC18F57Q84 Two Axis CNC Machine
 
 This project demonstrates an implementation of a 2-axis computer numerical
-control (CNC) machine which makes use of the Direct Memory Address (DMA),
-Numerically Controlled Oscillator (NCO) and other Core Independent Peripherals
+control (CNC) machine which makes use of the Numerically Controlled Oscillator (NCO), Direct Memory Address (DMA) and other Core Independent Peripherals
 (CIPs) to handle acceleration and movement with minimal input from the
 microcontroller core.
-with minimal
 
 
 ## Theory of Operation
@@ -18,7 +15,7 @@ This is a general overview of the application. A more complete explanation can
 
  Numerically Controlled Oscillators are a peripheral which work by creating
  an output frequency which is a precise fraction of the input frequency.
- This frequency is a function of two values, the input frequency, and the
+ This output frequency is a function of two values, the input frequency, and the
  value of the increment register of the NCO.
  This project makes use of three NCOs, a master NCO which determines overall speed,
   and a slave NCO for each axis which determines the proportion of speed in each
@@ -28,7 +25,7 @@ This is a general overview of the application. A more complete explanation can
 
 For instance, if the goal is to move 200 mm in the X axis, and 100 mm in the Y
 axis, the X NCO can be set to produce twice the frequency of output as the
-Y NCO. This means that that X will move twice as fast, and therefore cover twice
+Y NCO. This means that X will move twice as fast, and therefore cover twice
 the distance.
 
 Additionally, because both frequencies are a function of the master
@@ -37,10 +34,7 @@ doubled, while maintaining the same proportion (e.g. X will still be going twice
 as fast as Y, and will therefore still cover twice the distance).
 
 Direct Memory Address (DMA) is a module which can copy data from one memory
-location to another when triggered. Acceleration of the machine can be achieved
-by using the DMA to gradually increase or decrease the value in the increment
-register of the NCO, resulting in the frequency of the master NCO, and therefore
-the speed of movement in the two axes, increasing or decreasing proportionally.
+location to another without any CPU intervention. DMA operation can be configured to start and/or abort based on several built-in trigger options. Acceleration of the machine can be achieved by using the DMA to gradually increase or decrease the value in the increment register of the NCO, resulting in the frequency of the master NCO, and therefore the speed of movement in the two axes, increasing or decreasing proportionally.
 
 The distance travelled in each direction can be known by counting the number of
 pulses from the master NCO. In short, this is because if the master
@@ -50,21 +44,12 @@ moved the steppers in both axes the correct distance.
 
 ## Related Documentation
 
-<!-- Any information about an application note or tech brief can be linked here. Use unbreakable links!
-     In addition a link to the device family landing page and relevant peripheral pages as well:
-     - [AN3381 - Brushless DC Fan Speed Control Using Temperature Input and Tachometer Feedback](https://microchip.com/00003381/)
-     - [PIC18F-Q10 Family Product Page](https://www.microchip.com/design-centers/8-bit/pic-mcus/device-selection/pic18f-q10-product-family) -->
-
+<!-- - [AN1234 - Whatever the Title Is](https://www.microchip.com/design-centers/8-bit/pic-mcus/device-selection/pic18f-q84-product-family) THIS LINK MIGHT NOT BE VALID. REMOVE BEFORE FLIGHT. -->
 - [PIC18F-Q84 Family Product Page](https://www.microchip.com/design-centers/8-bit/pic-mcus/device-selection/pic18f-q84-product-family) THIS LINK MIGHT NOT BE VALID. REMOVE BEFORE FLIGHT.
+
 
 ## Software Used
 
-<!-- All software used in this example must be listed here. Use unbreakable links!
-     - MPLAB® X IDE 5.30 or newer [(microchip.com/mplab/mplab-x-ide)](http://www.microchip.com/mplab/mplab-x-ide)
-     - MPLAB® XC8 2.10 or a newer compiler [(microchip.com/mplab/compilers)](http://www.microchip.com/mplab/compilers)
-     - MPLAB® Code Configurator (MCC) 3.95.0 or newer [(microchip.com/mplab/mplab-code-configurator)](https://www.microchip.com/mplab/mplab-code-configurator)
-     - MPLAB® Code Configurator (MCC) Device Libraries PIC10 / PIC12 / PIC16 / PIC18 MCUs [(microchip.com/mplab/mplab-code-configurator)](https://www.microchip.com/mplab/mplab-code-configurator)
-     - Microchip PIC18F-Q Series Device Support (1.4.109) or newer [(packs.download.microchip.com/)](https://packs.download.microchip.com/) -->
 
 - MPLAB® X IDE 5.40 or newer [(microchip.com/mplab/mplab-x-ide)](http://www.microchip.com/mplab/mplab-x-ide)
 - MPLAB® XC8 2.20 or newer [(microchip.com/mplab/compilers)](http://www.microchip.com/mplab/compilers)
@@ -73,13 +58,6 @@ moved the steppers in both axes the correct distance.
 - Microchip PIC18F-Q Series Device Support 1.7.130 or newer [(packs.download.microchip.com/)](https://packs.download.microchip.com/)
 
 ## Hardware Used
-
-<!-- All hardware used in this example must be listed here. Use unbreakable links!
-     - PIC18F47Q10 Curiosity Nano [(DM182029)](https://www.microchip.com/Developmenttools/ProductDetails/DM182029)
-     - Curiosity Nano Base for Click boards™ [(AC164162)](https://www.microchip.com/Developmenttools/ProductDetails/AC164162)
-     - POT Click board™ [(MIKROE-3402)](https://www.mikroe.com/pot-click) -->
-
-![Platform](images/platform.png)
 
 
 - PIC18F57Q43 Curiosity Nano [(DM182029)](https://www.microchip.com/Developmenttools/ProductDetails/DM164150)
@@ -98,37 +76,40 @@ the end effector selected should be raised when the pin controlling it is low,
 and lowered when the pin is high. This can be modified as needed to work with
 a selected end effector.
 
+![Platform](images/platform.png)
+
 ## Setup
 
 Most configuration is done through the config.h file. The configurations are:
 
 - `TICKS_PER_METER`: the number of steps of the stepper motor required to move the
 end effector one meter
-- `X_MAX`/`YMAX`: the maximum range, in steps, of the X and Y axes
+- `X_MAX`/`Y_MAX`: the maximum range, in steps, of the X and Y axes
 - `X_BACKWARDS`/`Y_BACKWARDS`: whether to reverse the direction of the stepper
 motor on this axis
 - `BUFFER_NUMBER_PACKETS`: the size of the command buffer. This can be left at the
 default 5
 
-Pinout is defined with two constants, `NAME_PIN_PORT` and `NAME_PIN_POS`. To
-have pin Y_ENABLE on RA6, the code would be
+Pinout of the various pins (e.g. limit switches, the Click™ boards, the
+actuator, etc) is defined in config.h with two constants per pin,
+ `NAME_PIN_PORT` and `NAME_PIN_POS`.
+ For example, to have pin Y_ENABLE on RA6, the code would be
 
 ```
 #define Y_ENABLE_PIN_PORT RA
 #define Y_ENABLE_PIN_POS 6
 ```
 
-As configured, the Y axis Stepper Click board™ should go in slot 1, and the x
-axis should be in slot 3.
+As configured, the Y axis Stepper Click board™ should go in slot 1, and the X
+axis should be in slot 3 of the curiosity nano base board.
 
-By default the limit switch pin for the y axis is RA1, and the x axis is RC7.
+By default the limit switch pin for the Y axis is RA1, and the X axis is RC7.
 The actuator is on pin RF2.
 
 If an alternate method of controlling the actuator is desired, the relevant
 functions to modify are `Platform_RaiseActuator()` and `Platform_LowerActuator()` in
 platform.c which by default simply set ACTUATOR_PIN high/low.
 
-<!-- Explain how to connect hardware and set up software. Depending on complexity, step-by-step instructions and/or tables and/or images can be used -->
 
 ## Operation
 
@@ -145,7 +126,6 @@ Movement in the Z axis and the X/Y plane simultaneously is not supported.
 
 ## Summary
 
-<!-- Summarize what the example has shown -->
 
 The example G-Code included with the PC application creates the star shown below.
 
