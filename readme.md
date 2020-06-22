@@ -45,7 +45,7 @@ moved the steppers in both axes the correct distance.
 ## Related Documentation
 
 <!-- - [AN1234 - Whatever the Title Is](https://www.microchip.com/design-centers/8-bit/pic-mcus/device-selection/pic18f-q84-product-family)-->
-- [PIC18F57Q43 Product Page](https://www.microchip.com/wwwproducts/en/PIC18F57Q43)
+- [PIC18F57Q84 Product Page](https://www.microchip.com/wwwproducts/en/PIC18F57Q843)
 
 
 ## Software Used
