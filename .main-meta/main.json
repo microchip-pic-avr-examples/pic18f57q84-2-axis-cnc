@@ -3,28 +3,28 @@
     "category": "com.microchip.ide.project",
     "content": {
         "metaDataVersion": "1.1.0",
-        "name": "com.microchip.mcu8.mplabx.project.",
-        "version": " ",
-        "displayName": "  ",
-        "projectName": "",
-        "shortDescription": "",
+        "name": "com.microchip.mcu8.mplabx.project.pic18f57q84-2-axis-cnc",
+        "version": "1.0.1",
+        "displayName": "PIC18F57Q84 Two Axis CNC Machine",
+        "projectName": "pic18f57q84-2-axis-cnc",
+        "shortDescription": "Core-Independent Two-Axis CNC Machine",
         "ide": {
-            "name": "",
-            "semverRange": ""
+            "name": "MPLABX",
+            "semverRange": ">=5.40."
         },
         "compiler": [
 			{
-				"name": "",
-				"semverRange": ""
+				"name": "XC8",
+				"semverRange": "^2.20.0"
 			}
 		],
         "dfp": {
-            "name": "",
-            "semverRange": ""
+            "name": "PIC18F-Q_DFP",
+            "semverRange": "^1.7.130"
         },
         "configurator": {
-            "name": "",
-            "semverRange": ""
+            "name": "MCC",
+            "semverRange": ">=3.95.0"
         },
         "device": {
             "metaDataVersion": "1.0.0",
@@ -32,26 +32,38 @@
             "content": {
                 "metaDataVersion": "1.0.0",
                 "category": "com.microchip.device",
-                "name": "",
+                "name": "PIC18F47Q84",
                 "versionRange": "*"
             }
         },
-        "author": "",
+        "author": "Microchip",
         "subcategories": [
-            "",
+            "Motor Control",
             [
-               "Peripherals", ""
+               "Peripherals", "EUSART"
             ],
             [
-               "Peripherals", ""
-            ]            			
+               "Peripherals", "DMA"
+            ],
+            [
+               "Peripherals", "NCO"
+            ],
+            [
+               "Peripherals", "TIMER"
+            ]
         ],
         "peripherals": [
-            "",""
+            "EUSART","DMA","NCO","TIMER"
         ],
         "keywords": [
-            "",
-            ""			
+            "DMA",
+            "Core Independent",
+            "Motor Control",
+            "Numerically Controlled Oscillator",
+            "Robotics",
+            "PIC18",
+            "Stepper",
+            "Stepper Motor"
         ],
 		"additionalData": {
 			"longDescription": {
