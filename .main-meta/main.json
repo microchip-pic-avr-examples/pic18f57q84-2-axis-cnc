@@ -10,7 +10,7 @@
         "shortDescription": "Core-Independent Two-Axis CNC Machine",
         "ide": {
             "name": "MPLABX",
-            "semverRange": ">=5.40."
+            "semverRange": ">=5.40.0"
         },
         "compiler": [
 			{
