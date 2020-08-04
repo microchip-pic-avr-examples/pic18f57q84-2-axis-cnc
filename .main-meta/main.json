@@ -20,7 +20,7 @@
 		],
         "dfp": {
             "name": "PIC18F-Q_DFP",
-            "semverRange": "^1.7.130"
+            "semverRange": "^1.5.124"
         },
         "configurator": {
             "name": "MCC",
