@@ -4,7 +4,7 @@
     "content": {
         "metaDataVersion": "1.1.0",
         "name": "com.microchip.mcu8.mplabx.project.pic18f57q84-2-axis-cnc",
-        "version": "1.0.1",
+        "version": "1.0.2",
         "displayName": "PIC18F57Q84 Two Axis CNC Machine",
         "projectName": "pic18f57q84-2-axis-cnc",
         "shortDescription": "Core-Independent Two-Axis CNC Machine",
