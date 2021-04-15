@@ -4,20 +4,20 @@
     "content": {
         "metaDataVersion": "1.1.0",
         "name": "com.microchip.mcu8.mplabx.project.pic18f57q84-2-axis-cnc",
-        "version": "1.0.2",
+        "version": "1.0.3",
         "displayName": "PIC18F57Q84 Two Axis CNC Machine",
         "projectName": "pic18f57q84-2-axis-cnc",
         "shortDescription": "Core-Independent Two-Axis CNC Machine",
         "ide": {
-            "name": "MPLABX",
+            "name": "MPLAB X",
             "semverRange": ">=5.40.0"
         },
         "compiler": [
-			{
-				"name": "XC8",
-				"semverRange": "^2.20.0"
-			}
-		],
+            {
+                "name": "XC8",
+                "semverRange": "^2.20.0"
+            }
+        ],
         "dfp": {
             "name": "PIC18F-Q_DFP",
             "semverRange": "^1.5.124"
@@ -40,20 +40,27 @@
         "subcategories": [
             "Motor Control",
             [
-               "Peripherals", "EUSART"
+                "Peripherals",
+                "EUSART"
             ],
             [
-               "Peripherals", "DMA"
+                "Peripherals",
+                "DMA"
             ],
             [
-               "Peripherals", "NCO"
+                "Peripherals",
+                "NCO"
             ],
             [
-               "Peripherals", "TIMER"
+                "Peripherals",
+                "TIMER"
             ]
         ],
         "peripherals": [
-            "EUSART","DMA","NCO","TIMER"
+            "EUSART",
+            "DMA",
+            "NCO",
+            "TIMER"
         ],
         "keywords": [
             "DMA",
@@ -65,16 +72,16 @@
             "Stepper",
             "Stepper Motor"
         ],
-		"additionalData": {
-			"longDescription": {
-				"metaDataVersion": "1.0.0",
-				"category": "com.microchip.portal.fileRef",
-				"content": {
-					"metaDataVersion": "1.0.0",
-					"fileName": "./README.md",
-					"mimeType": "text/markdown"
-				}
-			}
-		}
-	}
+        "additionalData": {
+            "longDescription": {
+                "metaDataVersion": "1.0.0",
+                "category": "com.microchip.portal.fileRef",
+                "content": {
+                    "metaDataVersion": "1.0.0",
+                    "fileName": "./README.md",
+                    "mimeType": "text/markdown"
+                }
+            }
+        }
+    }
 }
