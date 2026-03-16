@@ -4,27 +4,27 @@
     "content": {
         "metaDataVersion": "1.1.0",
         "name": "com.microchip.mcu8.mplabx.project.pic18f57q84-2-axis-cnc",
-        "version": "1.0.3",
+        "version": "2.0.0",
         "displayName": "PIC18F57Q84 Two Axis CNC Machine",
         "projectName": "pic18f57q84-2-axis-cnc",
         "shortDescription": "Core-Independent Two-Axis CNC Machine",
         "ide": {
             "name": "MPLAB X",
-            "semverRange": ">=5.40.0"
+            "semverRange": ">=6.25.0"
         },
         "compiler": [
             {
                 "name": "XC8",
-                "semverRange": "^2.20.0"
+                "semverRange": "^3.1.0"
             }
         ],
         "dfp": {
             "name": "PIC18F-Q_DFP",
-            "semverRange": "^1.5.124"
+            "semverRange": "^1.28.451"
         },
         "configurator": {
             "name": "MCC",
-            "semverRange": ">=3.95.0"
+            "semverRange": ">=5.6.3"
         },
         "device": {
             "metaDataVersion": "1.0.0",
@@ -37,25 +37,7 @@
             }
         },
         "author": "Microchip",
-        "subcategories": [
-            "Motor Control",
-            [
-                "Peripherals",
-                "EUSART"
-            ],
-            [
-                "Peripherals",
-                "DMA"
-            ],
-            [
-                "Peripherals",
-                "NCO"
-            ],
-            [
-                "Peripherals",
-                "TIMER"
-            ]
-        ],
+        
         "peripherals": [
             "EUSART",
             "DMA",
@@ -68,7 +50,6 @@
             "Motor Control",
             "Numerically Controlled Oscillator",
             "Robotics",
-            "PIC18",
             "Stepper",
             "Stepper Motor"
         ],

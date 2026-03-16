@@ -50,18 +50,16 @@ moved the steppers in both axes the correct distance.
 
 ## Software Used
 
-
-- MPLAB® X IDE 5.40 or newer [(microchip.com/mplab/mplab-x-ide)](http://www.microchip.com/mplab/mplab-x-ide)
-- MPLAB® XC8 2.20 or newer [(microchip.com/mplab/compilers)](http://www.microchip.com/mplab/compilers)
-- MPLAB® Code Configurator (MCC) 3.95.0 or newer [(microchip.com/mplab/mplab-code-configurator)](https://www.microchip.com/mplab/mplab-code-configurator)
-- MPLAB® Code Configurator (MCC) Device Libraries PIC10 / PIC12 / PIC16 / PIC18 MCUs [(microchip.com/mplab/mplab-code-configurator)](https://www.microchip.com/mplab/mplab-code-configurator)
-- Microchip PIC18F-Q Series Device Support 1.7.130 or newer [(packs.download.microchip.com/)](https://packs.download.microchip.com/)
+  - [MPLAB® X IDE v6.25.0](https://www.microchip.com/en-us/development-tools-tools-and-software/mplab-x-ide) or newer
+  - [MPLAB® XC8 v3.1.0](https://www.microchip.com/en-us/tools-resources/develop/mplab-xc-compilers/xc8) or newer
+  - [MPLAB® Code Configurator (MCC) v5.6.3](https://www.microchip.com/mplab/mplab-code-configurator) or newer 
+  - [Microchip PIC18F-Q Series Device Support (1.18.451](https://packs.download.microchip.com/) or newer
 
 ## Hardware Used
 
 
-- PIC18F57Q43 Curiosity Nano [(DM182029)](https://www.microchip.com/Developmenttools/ProductDetails/DM164150)
-- Curiosity Nano Base for Click boards™ [(AC164162)](https://www.microchip.com/Developmenttools/ProductDetails/AC164162)
+- [PIC18F57Q43 Curiosity Nano](https://www.microchip.com/Developmenttools/ProductDetails/DM164150)
+-  [Curiosity Nano Base for Click boards™](https://www.microchip.com/Developmenttools/ProductDetails/AC164162)
 - 2x Stepper Click board™ [(MIKROE-3402)](https://www.mikroe.com/stepper-click)
 - 2 Axis CNC gantry - The code is designed to be flexible, such that it can
 be modified to work with almost any XY stepper gantry selected, provided
