@@ -92,8 +92,8 @@ void Acceleration_RampUp(uint16_t desired_lut_index) {
     ResetTimer();
     DMASELECT = NCO_DMA;
     DMAnCON0bits.EN = 0;
-    DMAnDSA = NCO_INC_LOC; // Destination starts at location of NCO Increment Address
-    DMAnSSA = NCO_INC_LUT_LOC; // Source starts at location of NCO lookup table
+    DMAnDSA = (uint16_t)NCO_INC_LOC;       // Destination starts at location of NCO Increment Address
+    DMAnSSA = (uint16_t)NCO_INC_LUT_LOC;   // Source starts at location of NCO lookup table
     DMAnCON1bits.DMODE = INCREMENT_POINTER; // Increment destination location each time
     DMAnCON1bits.SMODE = INCREMENT_POINTER; // Increment source location each time
     DMAnSSZ = desired_lut_index * NCO_INC_SIZE; // Copy bytes from source until desired location is reached
@@ -104,8 +104,8 @@ void Acceleration_RampUp(uint16_t desired_lut_index) {
     
     DMASELECT = TMR_DMA;
     DMAnCON0bits.EN = 0;
-    DMAnDSA = TMR_LOC;
-    DMAnSSA = TMR_LUT_LOC; // Source starts at location of NCO lookup table
+    DMAnDSA = (uint16_t)TMR_LOC;
+    DMAnSSA = (uint16_t)TMR_LUT_LOC; // Source starts at location of NCO lookup table
     DMAnCON1bits.DMODE = INCREMENT_POINTER; // Increment destination location each time
     DMAnCON1bits.SMODE = INCREMENT_POINTER; // Increment source location each time
     DMAnSSZ = desired_lut_index * TMR_PR_SIZE; // Copy bytes from source until desired location is reached
@@ -121,14 +121,14 @@ void Acceleration_RampDown(uint16_t current_lut_index) {
     
     DMASELECT = NCO_DMA;
     DMAnCON0bits.EN = 0;
-    void * start_of_nco_inc = NCO_INC_LOC; // First byte in INC register
-    void * end_of_nco_inc = start_of_nco_inc + NCO_INC_SIZE - 1; // Last byte location
-    DMAnDSA = end_of_nco_inc; // Start copying to end of location (backwards)
+    volatile void * start_of_nco_inc = NCO_INC_LOC; // First byte in INC register
+    volatile void * end_of_nco_inc = start_of_nco_inc + NCO_INC_SIZE - 1; // Last byte location
+    DMAnDSA = (uint16_t)end_of_nco_inc; // Start copying to end of location (backwards)
     uint16_t source_size = current_lut_index * NCO_INC_SIZE; // Number of bytes to return to start
     DMAnSSZ = source_size; // Copy until it gets back to start
     void * start_of_lut = NCO_INC_LUT_LOC; // First byte in LUT
     void * location_to_copy = start_of_lut + source_size - 1; // Location to start reversing from
-    DMAnSSA = location_to_copy;
+    DMAnSSA = (uint16_t)location_to_copy;
     DMAnCON1bits.DMODE = DECREMENT_POINTER; // Decrement destination each time
     DMAnCON1bits.SMODE = DECREMENT_POINTER; // Decrement source each time
 
@@ -138,14 +138,14 @@ void Acceleration_RampDown(uint16_t current_lut_index) {
     
     DMASELECT = TMR_DMA;
     DMAnCON0bits.EN = 0;
-    void * start_of_tmr = TMR_LOC;
-    void * end_of_tmr = start_of_tmr + TMR_PR_SIZE - 1;
-    DMAnDSA = end_of_tmr; // Start copying to end of location (backwards)
+    uint8_t * start_of_tmr = (uint8_t *)TMR_LOC;
+    uint8_t * end_of_tmr   = start_of_tmr + (TMR_PR_SIZE - 1);
+    DMAnDSA = (uint16_t)end_of_tmr; // Start copying to end of location (backwards)
     source_size = current_lut_index * TMR_PR_SIZE; // Number of bytes to return to start
     DMAnSSZ = source_size; // Copy until it gets back to start
     start_of_lut = TMR_LUT_LOC; // First byte in LUT
     location_to_copy = start_of_lut + source_size - 1; // Location to start reversing from
-    DMAnSSA = location_to_copy;
+    DMAnSSA = (__uint24)location_to_copy;
     DMAnCON1bits.DMODE = DECREMENT_POINTER; // Decrement destination each time
     DMAnCON1bits.SMODE = DECREMENT_POINTER; // Decrement source each time
 

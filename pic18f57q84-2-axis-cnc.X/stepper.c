@@ -124,7 +124,7 @@ StepperError Stepper_Home(Stepper * stepper) {
 StepperError Stepper_GoStepsManual(Stepper * stepper, int16_t steps) {
     StepperError error = NO_ERROR;
 
-    uint16_t magnitude = abs(steps);
+    uint16_t magnitude = (steps < 0) ? (uint16_t)(-steps) : (uint16_t)steps;
     
     SelectClc(*stepper);
 

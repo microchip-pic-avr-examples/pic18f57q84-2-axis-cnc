@@ -92,9 +92,10 @@ void Counter_Initialize(){
 // This should only be executed if you are sure the value will
 // not be updated midway through execution
 // This is generally bad practice, but is necessary for immediate access
-uint16_t Counter_GetValue(){
-    uint16_t result = (MASTER_SMT_TMRH << 8) + MASTER_SMT_TMRL;
-    
+
+uint16_t Counter_GetValue() {
+    uint16_t result = ((uint16_t)MASTER_SMT_TMRH << 8) |
+                      (uint16_t)MASTER_SMT_TMRL;
     return result;
 }
 

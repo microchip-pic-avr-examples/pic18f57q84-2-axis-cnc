@@ -108,21 +108,21 @@ void Comms_SendMetadata() {
 void Comms_InitializeDMA(void) {
     DMASELECT = UART_DMA;
 
-    DMAnDSZ = MESSAGE_SIZE * 2; // Buffer is twice the size of updated region
-    DMAnSSZ = 1; // UARTRX is 1 byte
-    DMAnSSA = &RX_LOCATION; // Location of RX register
-    DMAnDSA = buffer; // Copy to buffer
+    DMAnDSZ = MESSAGE_SIZE * 2;      // Buffer is twice the size of updated region
+    DMAnSSZ = 1;                     // UARTRX is 1 byte
+    DMAnSSA = (__uint24)&RX_LOCATION; // Source: RX register (24-bit DMA)
+    DMAnDSA = (uint16_t)&buffer[0];   // Destination: start of buffer (16-bit DMA)
     DMAnCON1bits.DMODE = INCREMENT_POINTER;
     DMAnCON1bits.SMODE = INCREMENT_POINTER;
-    DMAnSIRQ = RX_SIRQ; // Triggered by RX
+    DMAnSIRQ = RX_SIRQ;              // Triggered by RX
     DMAnCON0bits.EN = 1;
 
     DMASELECT = CURRENT_PACKET_DMA;
     
     DMAnDSZ = PACKET_SIZE; // Reading one packet at a time
     DMAnSSZ = MESSAGE_SIZE * 2; // Buffer is twice the size of updated region
-    DMAnDSA = &current; // Current instruction buffer location
-    DMAnSSA = buffer; // Copy from larger buffer
+    DMAnDSA = (uint16_t)&current; // Current instruction buffer location
+    DMAnSSA = (__uint24)buffer; // Copy from larger buffer
     DMAnCON1bits.DMODE = INCREMENT_POINTER;
     DMAnCON1bits.SMODE = INCREMENT_POINTER;
     DMAnCON1bits.DSTP = 1;
