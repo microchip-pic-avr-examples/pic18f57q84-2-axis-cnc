@@ -42,7 +42,7 @@
             "EUSART",
             "DMA",
             "NCO",
-            "TIMER"
+            "Timer"
         ],
         "keywords": [
             "DMA",
