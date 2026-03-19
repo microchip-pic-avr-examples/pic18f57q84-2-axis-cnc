@@ -51,15 +51,15 @@ moved the steppers in both axis the correct distance.
 
 - [PIC18F57Q43 Curiosity Nano Evaluation Kit](https://www.microchip.com/Developmenttools/ProductDetails/DM164150)
 -  [Curiosity Nano Base for Click boards™](https://www.microchip.com/Developmenttools/ProductDetails/AC164162)
-- Quantity 2 Stepper Click boards [(MIKROE-1528)](https://www.mikroe.com/stepper-click)
+- 2x Stepper Click boards [(MIKROE-1528)](https://www.mikroe.com/stepper-click)
 - 2 Axis CNC gantry - The code is designed to be flexible, such that it can
 be modified to work with almost any XY stepper gantry selected, provided
 the power requirements are not too great
-- Quantity 2 Limit switches - Switches should be located such that they are pressed when the platform is at the (0, 0) position, and should be high when pressed
-- Quantity 2 Stepper motors - The motors used will depend on the gantry, ensure
+- 2x Limit switches - Switches should be located such that they are pressed when the platform is at the (0, 0) position, and should be high when pressed
+- 2x Stepper motors - The motors used will depend on the gantry, ensure
 that they both move the end effector the same distance per tick, and must be
 2-pole (4 wire) to work with the Stepper Click board
-- End Effector - Choice of end effector is likewise left flexible. As configured, the end effector selected should be raised when the pin controlling it is low, and lowered when the pin is high. This can be modified as needed to work with a selected end effector
+- End Effector - Choice of end effector is likewise left flexible. As configured, the end effector selected should be raised when the pin controlling it is low, and lowered when the pin is high. This can be modified as needed to work with a selected end effector.
 
 ![Platform](images/platform.png)
 
@@ -76,7 +76,7 @@ motor on this axis
 Pinout of the various pins (e.g., the limit switches, the Click boards, the
 actuator, etc) is defined in `config.h` with two constants per pin,
  `NAME_PIN_PORT` and `NAME_PIN_POS`.
- For example, to have Y_ENABLE pin on RA6, the code would be
+ For example, to have Y_ENABLE pin on RA6, the code would be:
 
 ```
 #define Y_ENABLE_PIN_PORT RA
