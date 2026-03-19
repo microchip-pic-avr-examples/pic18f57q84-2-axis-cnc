@@ -49,7 +49,7 @@ moved the steppers in both axis the correct distance.
 ## Hardware Used
 
 
-- [PIC18F57Q43 Curiosity Nano Evaluation Kit](https://www.microchip.com/Developmenttools/ProductDetails/DM164150)
+- [PIC18F57Q43 Curiosity Nano Evaluation Kit](https://www.microchip.com/en-us/development-tool/dm182030)
 -  [Curiosity Nano Base for Click boards™](https://www.microchip.com/Developmenttools/ProductDetails/AC164162)
 - 2x Stepper Click boards [(MIKROE-1528)](https://www.mikroe.com/stepper-click)
 - 2 Axis CNC gantry - The code is designed to be flexible, such that it can
